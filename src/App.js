@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
+import Logo from './Logo';
 import './App.css';
+import Preferences from './Preferences';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+class App extends React.Component{
+  constructor(props) {
+    super(props)
+    this.state = {
+      preferences: {
+        logoColor: 'salmon'
+      }
+    }
+  }
+
+  setColor (color) {
+    this.setState({preferences: {logoColor: color}}, () => {
+      console.log(this, this.state)
+    })
+  }
+
+  render () {
+
+    const boundSetColor = (c) => this.setColor(c)
+    return <div className="App">
+      <Logo logoColor={this.state.preferences.logoColor} />
+      <Preferences preferences={this.state.preferences} setColor={boundSetColor} />
     </div>
-  );
+  }
 }
 
 export default App;

@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.logo {
+  padding: 2em;
+}
+
+.red {
+  background-color:tomato;
+}
+.ochre {
+  background-color: orange;
+}
+
+.salmon {
+  background-color: salmon;
+}
+
+.seagreen {
+  background-color: seagreen;
+}
+
+.preview {
+  width: 50%;
+  padding: 1em;
+}
