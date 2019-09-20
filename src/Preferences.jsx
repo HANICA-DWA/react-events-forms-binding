@@ -6,7 +6,8 @@ export default class Preferences extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      logoColor: props.preferences.logoColor
+      logoColor: props.preferences.logoColor,
+      companyName: props.preferences.companyName
     }
   }
 
@@ -14,9 +15,19 @@ export default class Preferences extends React.Component {
     this.setState({logoColor: event.target.value})
   }
 
+  companyChangeHandler (event) {
+    this.setState({companyName: event.target.value})
+  }
+
   onSubmit (event) {
     event.preventDefault();
     this.props.setColor(this.state.logoColor)
+    this.props.setCompanyName(this.state.companyName)
+    this.clearCompanyName();
+  }
+
+  clearCompanyName () {
+    this.setState({companyName: ''})
   }
 
   render() {
@@ -27,8 +38,9 @@ export default class Preferences extends React.Component {
         <option>ochre</option>
         <option>seagreen</option>
       </select>
+      <input type="text" placeholder="Type the company name" onChange={(e) => this.companyChangeHandler(e)} />
       <input type="submit" value='Save Preferences' />
-      <div className={`preview ${this.state.logoColor}`}></div>
+      <div className={`preview ${this.state.logoColor}`}>Preview for: {this.state.companyName}</div>
     </form>
   }
 
