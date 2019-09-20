@@ -38,7 +38,7 @@ export default class Preferences extends React.Component {
         <option>ochre</option>
         <option>seagreen</option>
       </select>
-      <input type="text" placeholder="Type the company name" onChange={(e) => this.companyChangeHandler(e)} />
+      <input type="text" placeholder="Type the company name" onChange={(e) => this.companyChangeHandler(e)} value={this.state.companyName}/>
       <input type="submit" value='Save Preferences' />
       <div className={`preview ${this.state.logoColor}`}>Preview for: {this.state.companyName}</div>
     </form>
